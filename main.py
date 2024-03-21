@@ -56,18 +56,25 @@ final_results = {
     "TLR01": 35.2
 }
 
+# Conjunto para almacenar combinaciones ya exploradas
+explored_combinations = set()
+
 # Variable para contar el número total de opciones
 total_resultados = 0
 
-# Recorrer todas las combinaciones válidas e imprimir los resultados si coinciden con los resultados finales
+# Recorrer todas las combinaciones válidas y de participantes e imprimir los resultados si coinciden con los resultados finales
 for comb_valida in combinaciones_validas:
     for comb_participante in combinaciones_participantes:
         resultado = calcular_resultado(comb_valida, comb_participante)
-        # Verificar si el resultado coincide con los resultados finales
-        if resultado[0] == final_results["CU001"] and resultado[1] == final_results["CU002"] and resultado[2] == final_results["TLR01"] and comb_valida[0] == (6, 6, 6):
-            print("Combinación válida:", comb_valida)
-            print("Combinación participante:", comb_participante)
-            print("Resultado para cada grupo:", resultado)
-            total_resultados += 1
+        # Verificar si el resultado coincide con los resultados finales y si la combinación válida ya fue explorada
+        if resultado[0] == final_results["CU001"] and resultado[1] == final_results["CU002"] and resultado[2] == final_results["TLR01"]:
+            suma_grupo_valida = (sum(comb_valida[0]), sum(comb_valida[1]), sum(comb_valida[2]))
+            if suma_grupo_valida not in explored_combinations:
+                print("Combinación válida:", comb_valida)
+                print("Combinación participante:", comb_participante)
+                print("Resultado para cada grupo:", resultado)
+                total_resultados += 1
+                # Agregar la combinación válida al conjunto de combinaciones exploradas
+                explored_combinations.add(suma_grupo_valida)
 
 print("Número total de opciones:", total_resultados)
