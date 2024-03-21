@@ -17,7 +17,7 @@ Las restricciones para las combinaciones de votos son las siguientes:
 
 ## Funcionamiento del Código
 
-### Generación de Combinaciones Válidas
+### Generación de Combinaciones Tribunales
 
 El código comienza generando todas las posibles combinaciones de votos de los tribunales para los 3 grupos, asegurándose de que cumplan con las restricciones mencionadas anteriormente.
 
