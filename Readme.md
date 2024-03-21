@@ -33,6 +33,16 @@ Para cada combinación válida y combinación de participantes, se calculan los 
 
 Los resultados se filtran para garantizar que no se repitan combinaciones exploradas ya que en el voto de los tribunales no nos importa el orden ( lo mismo es (10,8,6) que (6,8,10)). Se utilizan conjuntos para mantener un registro de las combinaciones de votos ya exploradas para cada grupo y las combinaciones de participantes.
 
+### Lectura del resultado
+#### Combinación valida: 
+((6,6,6),(8,10,10),(10,8,8)) Cada Grupo es un elemento de la lista, Grupo1 = comb_valida[0] = (6,6,6)
+
+#### Combinación participante: 
+Cada tupla representa una combinación válida de votos distribuidos entre los tres grupos. La estructura de cada tupla es (votos_10_grupo_1, votos_10_grupo_2, votos_10_grupo_3, votos_8_grupo_1, votos_8_grupo_2, votos_8_grupo_3).
+Por ejemplo, la primera tupla (0, 8, 4, 8, 0, 4) se puede interpretar de la siguiente manera:
+El primer grupo recibió 0 votos de 10, el segundo grupo recibió 8 votos de 10, y el tercer grupo recibió 4 votos de 10.
+El primer grupo recibió 8 votos de 8, el segundo grupo recibió 0 voto de 8, y el tercer grupo recibió 4 votos de 8.
+
 ## Ejecución del Código
 
 El código puede ejecutarse en cualquier entorno de Python 3.x. No requiere dependencias externas.
